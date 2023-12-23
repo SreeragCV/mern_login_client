@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -23,7 +23,7 @@ function Register() {
         console.error("Error:", error);
       });
 
-      navigate('/login')
+    navigate("/login");
   }
 
   function onChange(e) {

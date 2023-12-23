@@ -1,30 +1,31 @@
-import {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 
 function Login() {
   const [inputValues, setInputValues] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
-  const [newData, setNewData] = useState([])
-  const navigate = useNavigate()
+  const [newData, setNewData] = useState([]);
+  const navigate = useNavigate();
 
   async function loginUser(e) {
     e.preventDefault();
     await axios
       .post("http://localhost:5000/api/login", inputValues)
       .then((response) => {
-        setNewData((prevData) => { return [ ...prevData, response.data] })
+        setNewData((prevData) => {
+          return [...prevData, response.data];
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
       });
 
-      navigate('/user')
+    navigate("/user");
   }
 
   function onChange(e) {
@@ -72,10 +73,11 @@ function Login() {
       </form>
       <div>
         <ul>
-          {newData.length > 0 ? newData.map((data) => {
-            return <li>{data.email}</li>
-          })
-           : null}
+          {newData.length > 0
+            ? newData.map((data) => {
+                return <li>{data.email}</li>;
+              })
+            : null}
         </ul>
       </div>
     </div>

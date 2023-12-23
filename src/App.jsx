@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" Component={Login} />
-          <Route path="/register" Component={Register}/>
-          <Route path="/user" Component={User}/>
+          <Route path="/register" Component={Register} />
+          <Route path="/user" Component={User} />
         </Routes>
       </BrowserRouter>
     </>
